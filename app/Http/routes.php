@@ -12,3 +12,13 @@
 */
 
 Route::get('/', 'HomeController@home');
+Route::get('/login', 'HomeController@login');
+Route::get('/register', 'HomeController@register');
+Route::get('/articles/detail','HomeController@articles');
+Route::get('/admin/creat','Admin\AdminController@creat');
+Route::post('admin/article','Admin\AdminController@addarticle');
+Route::post('admin/article/del', 'Admin\AdminController@destroy');
+
+
+
+

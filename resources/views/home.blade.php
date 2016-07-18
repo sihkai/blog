@@ -1,13 +1,34 @@
 @extends('layouts.master')
-
 @section('title', '頁面標題')
-
-@section('sidebar')
-    @parent
-
-    <p>這邊會附加在主要的側邊欄。</p>
-@endsection
-
 @section('content')
-    <p>這是我的主要內容。</p>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">文章首頁</div>
+
+                    <div class="panel-body">
+
+
+                        @foreach ($articles as $article)
+                            <h4>{{ $article->id }}</h4>
+                            <div class="title">
+                                <a href="{{ URL('articles/detail?id='.$article->id)  }}">
+                                    <h4>{{ $article->title }}</h4>
+                                </a>
+                            </div>
+                            <div class="Message">
+                                <p>{{ $article->message }}</p>
+                            </div>
+                            <hr>
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection

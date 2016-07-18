@@ -1,22 +1,16 @@
 <?php
-namespace App;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
 class Message extends model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $table = 'message';
+
+
+    public function  ins($title , $message, $detail)
+    {
+        DB::table('message')->insert(
+            ['title' => $title, 'message'=>$message, 'detail'=>$detail]
+        );
+    }
+
 }
