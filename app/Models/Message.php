@@ -1,6 +1,8 @@
 <?php
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 class Message extends model
 {
     protected $table = 'message';
@@ -12,5 +14,13 @@ class Message extends model
             ['title' => $title, 'message'=>$message, 'detail'=>$detail]
         );
     }
+
+    public function  updata()
+    {
+       // DB::table('message')->updata(
+       //     ['title' => $title, 'message'=>$message, 'detail'=>$detail]
+       // );
+    }
+
 
 }

@@ -17,7 +17,10 @@ Route::get('/register', 'HomeController@register');
 Route::get('/articles/detail','HomeController@articles');
 Route::get('/admin/creat','Admin\AdminController@creat');
 Route::post('admin/article','Admin\AdminController@addarticle');
-Route::post('admin/article/del', 'Admin\AdminController@destroy');
+Route::post('admin/article/up/{id}', 'Admin\AdminController@up');
+Route::DELETE('admin/article/del/{id}', 'Admin\AdminController@destroy');
+
+
 
 
 
