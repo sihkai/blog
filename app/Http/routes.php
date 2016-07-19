@@ -15,10 +15,12 @@ Route::get('/', 'HomeController@home');
 Route::get('/login', 'HomeController@login');
 Route::get('/register', 'HomeController@register');
 Route::get('/articles/detail','HomeController@articles');
-Route::get('/admin/creat','Admin\AdminController@creat');
-Route::post('admin/article','Admin\AdminController@addarticle');
-Route::post('admin/article/up/{id}', 'Admin\AdminController@up');
-Route::DELETE('admin/article/del/{id}', 'Admin\AdminController@destroy');
+Route::get('/admin/creat','Admin\ArticlesController@creat');
+Route::post('register/rr','Admin\AdminController@registerrr');
+Route::post('admin/article','Admin\ArticlesController@addarticle');
+Route::post('admin/article/up/{id}', 'Admin\ArticlesController@up');
+Route::post('admin/article/up/check/{id}', 'Admin\ArticlesController@upcheck');
+Route::DELETE('admin/article/del/{id}', 'Admin\ArticlesController@destroy');
 
 
 
