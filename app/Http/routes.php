@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@home');
 Route::get('/login', 'HomeController@login');
+Route::post('/login/rr', 'HomeController@homelogin');
 Route::get('/register', 'HomeController@register');
 Route::get('/articles/detail','HomeController@articles');
 Route::get('/admin/creat','Admin\ArticlesController@creat');
