@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class ArticlesController extends Controller
 {
 
-    public function creat()
+    public function article()
     {
       return view('admin.admincreat');
     }

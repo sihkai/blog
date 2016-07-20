@@ -4,7 +4,7 @@
 
 @section('content')
 
-        <FORM action="{{ url('register/rr') }}" Method=post>
+        <form action="{{ url('register/check') }}" Method=post>
             <input type="hidden" name ='id'>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <TABLE BORDER=7 >
@@ -18,7 +18,7 @@
                                  　　 ID="Text1" NAME="passwd" required="required" type="password"></TD></TR>
             </TABLE>
                 <INPUT Type=Submit Value="註冊" name="B1">
-        </FORM>
+        </form>
 
 @endsection
 

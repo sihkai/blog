@@ -16,7 +16,7 @@ class LoginController extends HomeController
     public function loginlist()
     {
         return view('admin.adminhome')
-            ->withArticles(Message::all())
+            ->withArticles(Message::all());
 
     }
 

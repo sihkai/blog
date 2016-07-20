@@ -4,19 +4,19 @@
 
 
 @section('content')
-    <form action="{{ url('login/rr') }}" method=post>
+    <form action="{{ url('login/check') }}" method=post>
         <input type="hidden" name ='id'>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <table border="7" >
-            <tr><td aign=RIGHT>登入名稱:</td>
+            <tr><td aign=right>登入名稱:</td>
                 <td>　 <input onkeyup="value=value.replace(/[\W]/g,'') "
                              　　 onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"
-                             　　 ID="Text1" NAME="userac" required="required"></td></tr>
-            <tr><td align="" =right>密碼:</td>
+                             　　 ID="Text1" NAME="account" required="required"></td></tr>
+            <tr><td align=right>密碼:</td>
                 <td>　 <input onkeyup="value=value.replace(/[\W]/g,'') "
                              　　 onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"
-                             　　 ID="Text1" NAME="passwd" required="required" type="password"></td></tr>
+                             　　 id="text1" name="password" required="required" type="password"></td></tr>
         </table>
-        <INPUT Type=Submit Value="登入" name="B1">
+        <input Type=submit Value="登入" name="B1">
     </form>
 @endsection

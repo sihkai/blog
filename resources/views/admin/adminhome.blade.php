@@ -10,7 +10,7 @@
 
                     <div class="panel-body">
 
-                        <a href="{{ URL('admin/creat') }}" class="btn btn-lg btn-primary">新增</a>
+                        <a href="{{ URL('admin/article') }}" class="btn btn-lg btn-primary">新增</a>
 
                         @foreach ($articles as $article)
                             <hr>
