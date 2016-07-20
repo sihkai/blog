@@ -14,6 +14,7 @@
 Route::get('/', 'HomeController@home');
 Route::get('/login', 'HomeController@login');
 Route::post('/login/rr', 'HomeController@homelogin');
+Route::get('/login/login', 'admin\LoginController@loginlist')->name('loginlogin');
 Route::get('/register', 'HomeController@register');
 Route::get('/articles/detail','HomeController@articles');
 Route::get('/admin/creat','Admin\ArticlesController@creat');
@@ -21,7 +22,7 @@ Route::post('register/rr','Admin\AdminController@registerrr');
 Route::post('admin/article','Admin\ArticlesController@addarticle');
 Route::post('admin/article/up/{id}', 'Admin\ArticlesController@up');
 Route::post('admin/article/up/check/{id}', 'Admin\ArticlesController@upcheck');
-Route::DELETE('admin/article/del/{id}', 'Admin\ArticlesController@destroy');
+Route::post('admin/article/del/{id}', 'Admin\ArticlesController@destroy');
 
 
 
