@@ -12,12 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class LoginController extends HomeController
 {
-
+    //進入後台首頁
     public function loginlist()
     {
         return view('admin.adminhome')
             ->withArticles(Message::all());
-
     }
 
 

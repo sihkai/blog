@@ -31,11 +31,11 @@ Route::post('/login/check', 'HomeController@homelogin');
 //新增文件的畫面(view)
 Route::get('/admin/article','Admin\ArticlesController@article');
 
-//後台加入新文件
+//後台確定新增新文件
 Route::post('admin/article/addarticle','Admin\ArticlesController@addarticle');
 
 //註冊帳號密碼做是否有被註冊過的判斷
-Route::post('register/check','Admin\AdminController@registerrr');
+Route::post('register/check','Admin\AdminController@registecheck');
 
 
 

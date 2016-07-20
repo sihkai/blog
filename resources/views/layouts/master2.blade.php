@@ -39,8 +39,8 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-
-                    <li><a href="{{ url('/login') }}">hello!! user</a></li>
+              <li>{{ session('account')}}</li>
+                    <li><a href="{{ url('/login') }}"></a></li>
                     <li><a href="{{ url('/register') }}">logout</a></li>
 
             </ul>

@@ -19,7 +19,6 @@
                             <textarea name="detail" rows="10" class="form-control" required="required">{{ $articles->detail }}</textarea>
                             <br>
                             <button class="btn btn-lg btn-info" onclick="return(confirm('確定編輯？'))">編輯文章</button>
-
                         </form>
                     </div>
                 </div>
