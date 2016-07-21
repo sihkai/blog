@@ -10,27 +10,24 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use session;
 
-class ArticlesController extends MasterController
+class DashboardController extends MasterController
 {
-
-    //顯示文章
-    public function article()
+    public function EnterDashboard()
     {
-        if (session()->has('account'))
-      {
-          view()->share('account',session('account'));
-          return view('admin.admincreat');
-
-      }
-      else
-      {
-          return redirect('/');
-      }
+        return view ('admin.adminhome');
     }
 
-    //透過id知道選擇哪一篇，把資料撈到前台articles的view
-    public function articles(Request $request)
+
+    public function logout()
     {
+        session()->flush();
+        return redirect('/');
+    }
+
+    //透過id知道選擇哪一篇，把資料撈到前台articles的view (index)
+    public function index(Request $request)
+    {
+
         return view('articles')->withArticles(Message::where('id',$request->input('id'))->first());
     }
 
@@ -45,19 +42,19 @@ class ArticlesController extends MasterController
     //刪除文件
     public function destroy($id)
     {
-        DB::table('message')->where('id', '=', $id)->delete();
+       // DB::table('message')->where('id', '=', $id)->delete();
         return redirect()->route('loginlogin');
     }
 
     //進到更新文件的view
-    public function up($id)
+    public function edit($id)
     {
         $message = Message::where('id',$id)->first();
         return view('admin.adminupdata')->withArticles($message);
     }
 
-    //確定更新文件
-    public function upcheck(Request $request,$id)
+    //確定更新文件 (update)
+    public function update(Request $request,$id)
     {
 
         $article = new Message;

@@ -41,7 +41,7 @@
                 <!-- Authentication Links -->
               <li>{{ session('account')}}</li>
 
-                    <li><a href="{{ url('/') }}">logout</a></li>
+                    <li><a href="{{ url('/logout') }}">logout</a></li>
 
             </ul>
         </div>

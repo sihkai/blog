@@ -20,18 +20,18 @@ class HomeController extends Controller
      * 進入前台首頁
      * @return mixed
      */
-    public function home()
+    public function index()
     {
-        session()->flush();
-        return view('home')->withArticles(Message::all());
+        return view('index')->withArticles(Message::all());
     }
+
     //進入前台登入畫面
     public function login()
     {
         return view('login');
     }
     //判斷前台登入後台的帳密
-    public function homelogin(Request $request)
+    public function LoginCheck(Request $request)
     {
         //檢查使用者是否存在
         $user=DB::table('admin')->where('account',$request->input('account'))->first();
@@ -47,7 +47,7 @@ class HomeController extends Controller
           session()->put('account', $user->account);
             //session(['account' => $user->account]);
 
-           return redirect()->route('loginlogin')
+          return redirect('dashboard')
                ->withArticles(Message::all())
                ->withOneadmin($user);
               // ->withOneadmin(Admin::where('account',$user ->account)-first());

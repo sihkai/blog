@@ -11,7 +11,9 @@
 |
 */
 //進入前台首頁(view)
-Route::get('/', 'HomeController@home');
+Route::get('/', 'HomeController@index')->name('index');
+
+Route::get('/logout', 'Admin\DashboardController@logout');
 
 //進入會員登入畫面(view)
 Route::get('/login', 'HomeController@login');
@@ -23,7 +25,10 @@ Route::get('/register', 'HomeController@register');
 Route::get('/articles/detail','HomeController@articles');
 
 //進入後台首頁
-Route::get('/login/login', 'admin\LoginController@loginlist')->name('loginlogin');
+Route::get('dashboard', 'admin\LoginController@EnterDashboard')->name('EnterDashboard');
+
+//在登入介面輸入帳密後做判斷
+Route::post('/login/LoginCheck', 'HomeController@LoginCheck');
 
 //在登入介面輸入帳密後做判斷
 Route::post('/login/check', 'HomeController@homelogin');

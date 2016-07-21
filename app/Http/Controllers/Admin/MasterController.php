@@ -27,7 +27,7 @@ class MasterController extends Controller
       }
       else
       {
-          header('Location: '.url('login'));
+          header('Location: http://develop.blog.com/login');
       }
     }
 

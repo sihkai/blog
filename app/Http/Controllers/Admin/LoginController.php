@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class LoginController extends MasterController
 {
     //進入後台首頁
-    public function loginlist()
+    public function EnterDashboard()
     {
         return view('admin.adminhome')
             ->withArticles(Message::all());

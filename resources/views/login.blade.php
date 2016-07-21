@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <form action="{{ url('login/check') }}" method=post>
+    <form action="{{ url('login/LoginCheck') }}" method=post>
         <input type="hidden" name ='id'>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <table border="7" >
