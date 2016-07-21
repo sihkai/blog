@@ -34,10 +34,10 @@ Route::post('/login/LoginCheck', 'HomeController@LoginCheck');
 Route::post('/login/check', 'HomeController@homelogin');
 
 //新增文件的畫面(view)
-Route::get('/admin/article','Admin\ArticlesController@article');
+Route::get('/admin/article','Admin\DashboardController@article');
 
 //後台確定新增新文件
-Route::post('admin/article/addarticle','Admin\ArticlesController@addarticle');
+Route::post('admin/article/addarticle','Admin\DashboardController@addarticle');
 
 //註冊帳號密碼做是否有被註冊過的判斷
 Route::post('register/check','Admin\AdminController@registecheck');
@@ -45,13 +45,13 @@ Route::post('register/check','Admin\AdminController@registecheck');
 
 
 //後台選取編輯文章跳到那篇文章的畫面
-Route::post('admin/article/up/{id}', 'Admin\ArticlesController@up');
+Route::post('admin/article/edit/{id}', 'Admin\DashboardController@edit');
 
 //後台點編輯文章也確定要更新
-Route::post('admin/article/up/check/{id}', 'Admin\ArticlesController@upcheck');
+Route::post('admin/article/update/{id}', 'Admin\DashboardController@update');
 
 //後台刪除文章
-Route::post('admin/article/del/{id}', 'Admin\ArticlesController@destroy');
+Route::post('admin/article/del/{id}', 'Admin\DashboardController@destroy');
 
 
 

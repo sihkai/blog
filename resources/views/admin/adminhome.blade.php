@@ -18,7 +18,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <form action="{{ url('admin/article/up/'.$article->id) }}" method="post" style="display: inline;">
+                            <form action="{{ url('admin/article/edit/'.$article->id) }}" method="post" style="display: inline;">
                                 <input type="hidden" name="id">
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-success">編輯</button>

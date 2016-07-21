@@ -9,33 +9,29 @@ class Message extends model
     protected $table = 'message';
 
 
-    public function  ins($title , $message, $detail)
+    public function  insupdate($id,$title , $message, $detail)
     {
-        DB::table('message')->insert(
-            ['title' => $title, 'message'=>$message, 'detail'=>$detail]
-        );
+        if($id!=null)
+        {
+            DB::table('message')
+                ->where('id',$id)
+                ->update(['title' => $title, 'message'=>$message, 'detail'=>$detail]);
+
+        }
+        else
+        {
+           DB::table('message')
+                ->where('id',$id)
+                ->insert(['title' => $title, 'message'=>$message,'detail'=>$detail]);
+        }
+
     }
 
-    /*public function  update($title , $message, $detail,$id)
-    {
-        DB::table('message')
-            ->where('id',$id)
-            ->update(['title' => $title, 'message'=>$message, 'detail'=>$detail]);
-    }
-    public function  load($id)
-    {
 
-        DB::table('message')
-            ->where('id',$id)
-            ->first();
-    }
-
-    public function  del($title , $message, $detail,$id)
+    public function  del($id)
     {
-        DB::table('message')
-            ->where('id',$id)
-            ->update(['title' => $title, 'message'=>$message, 'detail'=>$detail]);
-    }*/
+        DB::table('message')->where('id', '=', $id)->delete();
+    }
 
 
 }

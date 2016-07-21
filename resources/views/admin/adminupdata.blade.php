@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">編輯文章</div>
                     <div class="panel-body">
-                        <form action="{{ URL('admin/article/up/check/'.$articles ->id) }}" method="POST">
+                        <form action="{{ URL('admin/article/update/'.$articles ->id) }}" method="POST">
                             <input type="hidden" name ='id'>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <h5>標題</h5>
