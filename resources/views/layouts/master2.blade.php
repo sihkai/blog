@@ -40,8 +40,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
               <li>{{ session('account')}}</li>
-                    <li><a href="{{ url('/login') }}"></a></li>
-                    <li><a href="{{ url('/register') }}">logout</a></li>
+
+                    <li><a href="{{ url('/') }}">logout</a></li>
 
             </ul>
         </div>

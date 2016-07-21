@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master2')
 @section('title', '頁面標題')
 @section('content')
     <div class="container">

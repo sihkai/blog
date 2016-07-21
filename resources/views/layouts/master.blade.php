@@ -39,9 +39,13 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-
+                    @if(empty(session('account')))
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
+                    @else
+                    <li><a href="{{ url('/logout') }}">logout</a></li>
+
+                @endif
 
             </ul>
         </div>

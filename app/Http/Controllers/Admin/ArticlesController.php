@@ -8,16 +8,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use session;
 
-class ArticlesController extends Controller
+class ArticlesController extends MasterController
 {
 
     //顯示文章
     public function article()
     {
-        view()->share('account',session('user'));
-        view()->share('user_id',session('user'));
-      return view('admin.admincreat');
+        if (session()->has('account'))
+      {
+          view()->share('account',session('account'));
+          return view('admin.admincreat');
+
+      }
+      else
+      {
+          return redirect('/');
+      }
     }
 
     //透過id知道選擇哪一篇，把資料撈到前台articles的view

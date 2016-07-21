@@ -8,7 +8,7 @@ use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use Session;
+
 
 /**
  * Class HomeController
@@ -22,13 +22,10 @@ class HomeController extends Controller
      */
     public function home()
     {
-      return view('home')->withArticles(Message::all());
+        session()->flush();
+        return view('home')->withArticles(Message::all());
     }
-
-    /**
-     * 進入前台登入畫面
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
+    //進入前台登入畫面
     public function login()
     {
         return view('login');
@@ -46,12 +43,9 @@ class HomeController extends Controller
         //輸入的帳號密碼與資料庫帳號密碼相符登入
         else if($request->input('account')==$user->account && $request->input('password')==$user->password)
         {
-            session(
-                [
-                    'user' => $user,
-                ]);
 
-            dd(session('user'));
+          session()->put('account', $user->account);
+            //session(['account' => $user->account]);
 
            return redirect()->route('loginlogin')
                ->withArticles(Message::all())

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
-class LoginController extends HomeController
+class LoginController extends MasterController
 {
     //進入後台首頁
     public function loginlist()
