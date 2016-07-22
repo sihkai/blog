@@ -1,4 +1,4 @@
-@extends('layouts.master2')
+@extends('layouts.master')
 @section('title', '頁面標題')
 @section('content')
     <div class="container">
@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">後台首頁</div>
                     <div class="panel-body">
-                        <a href="{{ URL('admin/article') }}" class="btn btn-lg btn-primary">新增</a>
+                        <a href="{{ URL('backend/insert') }}" class="btn btn-lg btn-primary">新增</a>
                         @foreach ($articles as $article)
                             <hr>
                             <div class="page">
@@ -18,7 +18,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <form action="{{ url('admin/article/edit/'.$article->id) }}" method="post" style="display: inline;">
+                            <form action="{{ url('backend/edit/'.$article->id) }}" method="post" style="display: inline;">
                                 <input type="hidden" name="id">
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-success">編輯</button>

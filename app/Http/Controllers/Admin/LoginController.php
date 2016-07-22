@@ -13,11 +13,36 @@ use Illuminate\Support\Facades\DB;
 class LoginController extends MasterController
 {
     //進入後台首頁
-    public function EnterDashboard()
+    public function backend()
     {
-        return view('admin.adminhome')
+        return view('admin.backend')
             ->withArticles(Message::all());
     }
+    public function LoginCheck(Request $request)
+    {
+        //檢查使用者是否存在
+        $user=DB::table('admin')->where('account',$request->input('account'))->first();
+        if($user ==null)
+        {
+            return '您所輸入的使用者不存在';
+        }
 
+        //輸入的帳號密碼與資料庫帳號密碼相符登入
+        else if($request->input('account')==$user->account && $request->input('password')==$user->password)
+        {
+
+            session()->put('account', $user->account);
+            //session(['account' => $user->account]);
+            return redirect('backend')
+                ->withArticles(Message::all())
+                ->withOneadmin($user);
+            // ->withOneadmin(Admin::where('account',$user ->account)-first());
+        }
+        //輸入的帳在資料庫存在但密碼不符合
+        else if($request->input('account')==$user->account && $request->input('password')!=$user->password)
+        {
+            return '密碼錯誤失敗';
+        }
+    }
 
 }

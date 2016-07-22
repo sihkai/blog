@@ -25,33 +25,31 @@ Route::get('/register', 'HomeController@register');
 Route::get('/articles/detail','HomeController@articles');
 
 //進入後台首頁
-Route::get('dashboard', 'admin\LoginController@EnterDashboard')->name('EnterDashboard');
+Route::get('backend', 'admin\LoginController@backend')->name('backend');
 
 //在登入介面輸入帳密後做判斷
-Route::post('/login/LoginCheck', 'HomeController@LoginCheck');
-
-//在登入介面輸入帳密後做判斷
-Route::post('/login/check', 'HomeController@homelogin');
+Route::post('/login/LoginCheck', 'Admin\LoginController@LoginCheck');
 
 //新增文件的畫面(view)
-Route::get('/admin/article','Admin\DashboardController@article');
-
-//後台確定新增新文件
-Route::post('admin/article/addarticle','Admin\DashboardController@addarticle');
-
-//註冊帳號密碼做是否有被註冊過的判斷
-Route::post('register/check','Admin\AdminController@registecheck');
-
-
+Route::get('backend/insert','Admin\DashboardController@article');
 
 //後台選取編輯文章跳到那篇文章的畫面
-Route::post('admin/article/edit/{id}', 'Admin\DashboardController@edit');
+Route::post('backend/edit/{id}', 'Admin\DashboardController@edit');
+
+//後台確定新增/編輯新文件
+Route::post('backend/insert/check','Admin\DashboardController@update');
+
+//註冊帳號密碼做是否有被註冊過的判斷
+Route::post('register/check','Admin\AdminController@registe_check');
+
+
+
 
 //後台點編輯文章也確定要更新
-Route::post('admin/article/update/{id}', 'Admin\DashboardController@update');
+Route::post('backend/edit/update/{id}', 'Admin\DashboardController@update');
 
 //後台刪除文章
-Route::post('admin/article/del/{id}', 'Admin\DashboardController@destroy');
+Route::post('backend/del/{id}', 'Admin\DashboardController@destroy');
 
 
 

@@ -12,16 +12,26 @@ use session;
 
 class DashboardController extends MasterController
 {
+
+    //新增文件畫面
     public function article()
     {
-        return view ('admin.admincreat');
+        return view ('admin.backend_article');
     }
-    public function EnterDashboard()
+
+    //進到更新文件的view
+    public function edit($id)
     {
-        return view ('admin.adminhome');
+        $message = Message::where('id',$id)->first();
+        return view('admin.backend_article')->withArticles($message);
     }
 
+    public function backend()
+    {
+        return view ('admin.backend');
+    }
 
+    //登出,清空session
     public function logout()
     {
         session()->flush();
@@ -38,28 +48,20 @@ class DashboardController extends MasterController
     {
         $article = new Message;
         $article -> del($id);
-        return redirect()->route('EnterDashboard');
+        return redirect()->route('backend');
     }
 
-    //進到更新文件的view
-    public function edit($id)
-    {
-        $message = Message::where('id',$id)->first();
-        return view('admin.adminupdata')->withArticles($message);
-    }
+
 
     //確定更新文件 (update)
-    public function update(Request $request,$id)
+    public function update(Request $request)
     {
-       $article = new Message;
-       $article->insupdate($id,$request->input('title'),$request->input('message'),$request->input('detail'));
-        return redirect()->route('EnterDashboard');
+        $request->input('id',null);
+        if(empty($id))
+        {
+        return 123;}
+        else
+            return $id;
     }
-    //確定新增文件
-    public function addarticle(Request $request,$id=null)
-    {
-        $article = new Message;
-        $article->insupdate($id,$request->input('title'),$request->input('message'),$request->input('detail'),$id);
-        return redirect()->route('EnterDashboard');
-    }
+
 }

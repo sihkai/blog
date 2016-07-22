@@ -22,7 +22,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index')->withArticles(Message::all());
+
+        $users = DB::table('message')->paginate(2);
+
+        return view('index', ['users' => $users]);
     }
 
     //進入前台登入畫面
@@ -31,33 +34,7 @@ class HomeController extends Controller
         return view('login');
     }
     //判斷前台登入後台的帳密
-    public function LoginCheck(Request $request)
-    {
-        //檢查使用者是否存在
-        $user=DB::table('admin')->where('account',$request->input('account'))->first();
-        if($user ==null)
-        {
-            return '您所輸入的使用者不存在';
-        }
 
-        //輸入的帳號密碼與資料庫帳號密碼相符登入
-        else if($request->input('account')==$user->account && $request->input('password')==$user->password)
-        {
-
-          session()->put('account', $user->account);
-            //session(['account' => $user->account]);
-
-          return redirect('dashboard')
-               ->withArticles(Message::all())
-               ->withOneadmin($user);
-              // ->withOneadmin(Admin::where('account',$user ->account)-first());
-        }
-        //輸入的帳在資料庫存在但密碼不符合
-        else if($request->input('account')==$user->account && $request->input('password')!=$user->password)
-        {
-            return '密碼錯誤失敗';
-        }
-    }
 
     //進入註冊畫面
     public function register()

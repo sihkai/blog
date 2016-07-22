@@ -7,6 +7,7 @@ use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use session;
 
@@ -27,7 +28,7 @@ class MasterController extends Controller
       }
       else
       {
-          header('Location: http://develop.blog.com/login');
+          header('Location: '.url('/login'));
       }
     }
 
