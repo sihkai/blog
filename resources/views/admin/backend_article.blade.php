@@ -21,14 +21,14 @@
                             @if(empty($articles))
                                     <input type="text" name="title" class="form-control" required="required">
                                     <h5>故事前敘述</h5>
-                                    <input type="text" name="message" class="form-control" required="required">
+                                    <input type="text" name="article" class="form-control" required="required">
                                     <br>
                                     <textarea name="detail" rows="10" class="form-control" required="required"></textarea>
                                     <br>
                             @else
                                     <input type="text" name="title" class="form-control" required="required"value="{{$articles->title}}">
                                     <h5>故事前敘述</h5>
-                                    <input type="text" name="message" class="form-control" required="required" value="{{$articles->message}}">
+                                    <input type="text" name="article" class="form-control" required="required" value="{{$articles->article}}">
                                     <br>
                                     <textarea name="detail" rows="10" class="form-control" required="required">{{$articles->detail}}</textarea>
                             @endif

@@ -7,7 +7,7 @@
         <br>
         <h4>{{ $articles->title }}</h4>
         <br>
-        <h4>{{ $articles->message }}</h4>
+        <h4>{{ $articles->article }}</h4>
         <br>
         <h4>{{ $articles->detail }}</h4>
 

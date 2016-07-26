@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 use Crypt;
 use App\User;
-use App\Models\Message;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -22,8 +22,8 @@ class DashboardController extends MasterController
     //進到更新文件的view
     public function edit($id)
     {
-        $message = Message::where('id',$id)->first();
-        return view('admin.backend_article')->withArticles($message);
+        $article = Article::where('id',$id)->first();
+        return view('admin.backend_article')->withArticles($article);
     }
 
     public function backend()
@@ -41,12 +41,12 @@ class DashboardController extends MasterController
     //透過id知道選擇哪一篇，把資料撈到前台articles的view (index)
     public function index(Request $request)
     {
-        return view('articles')->withArticles(Message::where('id',$request->input('id'))->first());
+        return view('articles')->withArticles(Article::where('id',$request->input('id'))->first());
     }
     //刪除文件
     public function destroy($id)
     {
-        $article = new Message;
+        $article = new Article;
         $article -> del($id);
         return redirect()->route('backend');
     }
@@ -56,12 +56,21 @@ class DashboardController extends MasterController
     //確定更新文件 (update)
     public function update(Request $request)
     {
-        $request->input('id',null);
-        if(empty($id))
+    if($request->input('id') != null)
         {
-        return 123;}
-        else
-            return $id;
+            //更新
+            $article = new Article;
+            $article->upda($request->input('id'),$request->input('title'),$request->input('article'),$request->input('detail'));
+            return redirect()->route('backend');
+        }
+    else
+        {
+            //新增文件
+            $article = new Article;
+            $article  ->ins($request->input('title'),$request->input('article'),$request->input('detail'));
+            return redirect()->route('backend');
+
+        }
     }
 
 }

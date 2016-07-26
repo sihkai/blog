@@ -49,7 +49,7 @@ Route::post('register/check','Admin\AdminController@registe_check');
 Route::post('backend/edit/update/{id}', 'Admin\DashboardController@update');
 
 //後台刪除文章
-Route::post('backend/del/{id}', 'Admin\DashboardController@destroy');
+Route::post('admin/article/del/{id}','Admin\DashboardController@destroy');
 
 
 

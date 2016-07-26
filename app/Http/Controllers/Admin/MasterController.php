@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\User;
-use App\Models\Message;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +29,7 @@ class MasterController extends Controller
       else
       {
           header('Location: '.url('/login'));
+          exit;
       }
     }
 

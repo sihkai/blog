@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\User;
-use App\Models\Message;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $users = DB::table('message')->paginate(2);
+        $users = DB::table('article')->paginate(2);
 
         return view('index', ['users' => $users]);
     }
@@ -49,7 +49,7 @@ class HomeController extends Controller
      */
     public function articles(Request $request)
     {
-        return view('articles')->withArticles(Message::where('id',$request->input('id'))->first());
+        return view('articles')->withArticles(Article::where('id',$request->input('id'))->first());
     }
 
 }

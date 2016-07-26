@@ -14,7 +14,7 @@
                                 <h4>{{ $article->title }}</h4>
                                 <div class="content">
                                     <p>
-                                        {{ $article->message }}
+                                        {{ $article->article }}
                                     </p>
                                 </div>
                             </div>

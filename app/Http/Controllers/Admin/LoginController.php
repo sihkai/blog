@@ -5,18 +5,18 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\HomeController;
 use App\User;
 use App\Models\Admin;
-use App\Models\Message;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
-class LoginController extends MasterController
+class LoginController extends Controller
 {
     //進入後台首頁
     public function backend()
     {
         return view('admin.backend')
-            ->withArticles(Message::all());
+            ->withArticles(Article::all());
     }
     public function LoginCheck(Request $request)
     {
@@ -32,11 +32,7 @@ class LoginController extends MasterController
         {
 
             session()->put('account', $user->account);
-            //session(['account' => $user->account]);
-            return redirect('backend')
-                ->withArticles(Message::all())
-                ->withOneadmin($user);
-            // ->withOneadmin(Admin::where('account',$user ->account)-first());
+            return redirect('backend');
         }
         //輸入的帳在資料庫存在但密碼不符合
         else if($request->input('account')==$user->account && $request->input('password')!=$user->password)

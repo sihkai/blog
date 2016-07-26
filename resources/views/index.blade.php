@@ -6,7 +6,7 @@
             @foreach ($users as $user)
                 {{ $user->title }}
             <br>
-                {{ $user->message }}
+                {{ $user->article }}
                 <br>
             @endforeach
         </div>
