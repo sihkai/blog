@@ -30,7 +30,6 @@ class LoginController extends Controller
         //輸入的帳號密碼與資料庫帳號密碼相符登入
         else if($request->input('account')==$user->account && $request->input('password')==$user->password)
         {
-
             session()->put('account', $user->account);
             return redirect('backend');
         }

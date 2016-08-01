@@ -22,7 +22,7 @@ Route::get('/login', 'HomeController@login');
 Route::get('/register', 'HomeController@register');
 
 //選取前台文件後看到整篇文章的詳情
-Route::get('/articles/detail','HomeController@articles');
+Route::get('/articles/detail/{id}','HomeController@articles');
 
 //進入後台首頁
 Route::get('backend', 'admin\LoginController@backend')->name('backend');
@@ -42,17 +42,11 @@ Route::post('backend/insert/check','Admin\DashboardController@update');
 //註冊帳號密碼做是否有被註冊過的判斷
 Route::post('register/check','Admin\AdminController@registe_check');
 
-
-
-
 //後台點編輯文章也確定要更新
 Route::post('backend/edit/update/{id}', 'Admin\DashboardController@update');
 
 //後台刪除文章
 Route::post('admin/article/del/{id}','Admin\DashboardController@destroy');
 
-
-
-
-
-
+//會員編輯密碼
+Route::get('admin/edit','Admin\AdminController@edit');

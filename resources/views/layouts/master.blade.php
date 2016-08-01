@@ -43,6 +43,7 @@
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
+                    <li><a href="{{ url('/admin/edit') }}">{{'歡迎光臨!'.session()->get('account')}}</a></li>
                     <li><a href="{{ url('/backend') }}">backend</a></li>
                     <li><a href="{{ url('/logout') }}">logout</a></li>
                 @endif
@@ -51,7 +52,6 @@
         </div>
     </div>
 </nav>
-
 @yield('content')
 
 </body>

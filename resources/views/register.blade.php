@@ -1,9 +1,6 @@
 @extends('layouts.master')
-
 @section('title', '頁面標題')
-
 @section('content')
-
         <form action="{{ url('register/check') }}" Method=post>
             <input type="hidden" name ='id'>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">

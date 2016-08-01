@@ -8,10 +8,10 @@ class Admin extends model
 {
     protected $table = 'admin';
 
-    public function  ins($userac , $passwd)
+    public function  ins($account , $password)
     {
         DB::table('admin')->insert(
-            ['userac' => $userac, 'passwd'=>$passwd ]
+            ['account' => $account, 'password'=>$password ]
         );
     }
 

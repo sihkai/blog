@@ -23,9 +23,9 @@ class HomeController extends Controller
     public function index()
     {
 
-        $users = DB::table('article')->paginate(2);
+        $articles = DB::table('article')->paginate(5);
 
-        return view('index', ['users' => $users]);
+        return view('index', ['articles' => $articles]);
     }
 
     //進入前台登入畫面
@@ -49,7 +49,8 @@ class HomeController extends Controller
      */
     public function articles(Request $request)
     {
-        return view('articles')->withArticles(Article::where('id',$request->input('id'))->first());
+
+        return view('articles')->withArticles(Article::where('id',$request->id)->first());
     }
 
 }
